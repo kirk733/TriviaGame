@@ -1,0 +1,21 @@
+
+/* setting background */
+.jumbotron{
+
+	background: url("../images/Blue-Crystal-Meth-Wallpaper.jpg");
+}
+
+/* setting img height */
+img{
+	height: 100px;
+	width: 100px;
+
+}
+
+/* adjusting panels */
+.panel{
+	float: left;	
+	margin-left: 20px;
+	max-width: 550px;
+	text-align: : center;
+}
