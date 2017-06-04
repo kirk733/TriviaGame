@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Trivia Game</title>
+
+  <!-- Added a link to Bootstrap-->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+  <!-- Added a link to Bootstrap-->
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+  	<!-- Added link to the jQuery Library -->
+  	<script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+
+  	
+    <!-- Link to javascript file -->
+    <script type="text/javascript" src="assets/javascript/game.js"></script>
+
+</head>
+<body>
+	 <div class="jumbotron center-block">
+    	<h1 class="text-center">Movie Trivia Game</h1>
+      <button class="center-block btn-lg" id="button1">START</button>
+      <br>
+    <!-- panel for  Total Score-->
+    <div class="panel panel-default">
+      <div class="panel-heading text-Center"><strong>Movie Trivia</strong></div>
+        <div class="panel-body" id="panelQuestions">
+                <h3 class="text-Center"> "Which of these actors played in the movie Forrest Gump?"
+                  <form action="">
+                    <h4>
+                      <input type="radio" name="tom" value="Brady">Tom Brady
+                      <input type="radio" name="tom" value="Cruise">Tom Cruise
+                      <input type="radio" name="tom" value="Petty">Tom Petty
+                      <input type="radio" name="tom" value="Hanks">Tom Hanks
+                    </h4>        
+                  </form>
+                </h3>
+
+                  <h3 class="text-Center"> "How many Harry Potter movies are in the series?"
+                  <form action="">
+                    <h4>
+                      <input type="radio" name="tom" value="6">6
+                      <input type="radio" name="tom" value="7">7
+                      <input type="radio" name="tom" value="8">8
+                      <input type="radio" name="tom" value="9">9
+                    </h4>        
+                  </form>
+                </h3>
+        </div>
+    </div>
+  </div>
+</body>
+</html>
