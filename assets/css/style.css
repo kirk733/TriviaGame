@@ -1,14 +1,13 @@
 
 /* setting background */
-.body{
+body{
 
 	background: url("../images/images.jpeg");
 }
 
 
 .jumbotron{
-	float: center;
-	background-color: blue;
+	background-color: gold;
 	max-width: 550px;
 }
 
