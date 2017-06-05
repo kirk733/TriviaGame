@@ -5,7 +5,7 @@ body{
 	background: url("../images/images.jpeg");
 }
 
-
+/* just setting a few attributes on jumbotron */
 .jumbotron{
 	font-family: cursive;
 	background-color: gold;
@@ -13,8 +13,3 @@ body{
 }
 
 
-
-/* adjusting panels */
-.panel{
-	
-}

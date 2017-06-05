@@ -3,7 +3,7 @@
 $(document).ready(function() {
 
 
-     // Here we are provided an initial array of letters.
+     // Setting variables and arrays
 
      var numQues = 0;
      var wins = 0;
@@ -29,30 +29,31 @@ $(document).ready(function() {
 
      var trueAnswer = ["Hello", "His Famous Dance", "Well, are you gonna sit down, or aren't you?", "Jenny is taken to live with her grandmother.", "Paul 'Bear' Bryant", "160", "Vietnam", "I want to go home.", "Ping-Pong"];
 
-      	//$("#myList").hide();
+      	//hidding items on page
 		$("input").hide();	
 		$("label").hide();
 		$("#button2").hide();
 
       	$("#button1").on("click", function() {
-      		$("input").show();	
-			$("label").show();
-			$("#button2").show();
-			$("#button1").hide();
-			answerQuestion();
-			newTimer(myTimer); 
+      		$("input").show();	//show radio button
+			$("label").show();  //show radio button
+			$("#button2").show(); //hide button 2
+			$("#button1").hide(); //hide button 1
+			answerQuestion(); // call function to display question 
+			newTimer(myTimer); // start timer
 
       	});
 
+      	//submit answer button and load new question
       	$("#button2").on("click", function() {
-      		console.log(numQues);
       		if(numQues< question.length){
-      		checkAnswer();
-      		answerQuestion();
+      		checkAnswer(); //checking answers
+      		answerQuestion(); //loading new question
       		}
       		else{
-      			checkAnswer();
-      			displayFinals();
+      			checkAnswer(); //checking answers
+      			displayFinals(); //display results
+      			gameRunning = false; //setting to false to stop
 
       		}
 
@@ -62,7 +63,7 @@ $(document).ready(function() {
 
     
 
-      	
+      	// Function sets values for question
       	function answerQuestion(){
       		// Inside the on-click event...
       		if(numQues <= question.length){
@@ -75,6 +76,7 @@ $(document).ready(function() {
       		};
       		};
 
+      	// Function checks radio true or false and updates wins and losses
       	function checkAnswer(){	
     		var w = document.getElementById("test1").checked;
     		var x = document.getElementById("test2").checked;
@@ -102,7 +104,7 @@ $(document).ready(function() {
     			}
 
 			};
-
+		//displays results on screen and stop gameRunning..	
 		function displayFinals(){
 			$("input").hide();	
 			$("label").hide();
@@ -115,7 +117,7 @@ $(document).ready(function() {
 			gameRunning = false;
 
 		}
-
+		//timer function
 		function newTimer(seconds){
   			var nextSecond = seconds - 1;
   			var minutes = parseInt(seconds / 60, 10);
@@ -123,16 +125,16 @@ $(document).ready(function() {
       		minutes = minutes < 10 ? "0" + minutes : minutes;
       		currentSeconds = currentSeconds < 10 ? "0" + currentSeconds : currentSeconds;
   			var time = "" + minutes + ":" + currentSeconds;
-  
+  			
+  			//updates timer also checks condition of time incase ranout wil display results or continue
   			$("#timer").text(time);
   				if (nextSecond === 0 && gameRunning == true) {
   					$("#ranOut").html("Ran out of Time! GAME OVER!!");
     				displayFinals();
   				}
-  				else if(nextSecond === 0 && gameRunning == false){
+  				else if(nextSecond !== 0 && gameRunning == false){
   					$("#ranOut").html("GAME OVER!!");
     				displayFinals();
-    				clearTimout(time);
 
   				}
 

@@ -7,7 +7,7 @@
   <!-- Added a link to Bootstrap-->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
-  <!-- Added a link to Bootstrap-->
+  <!-- Added a link to my style css-->
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
   	<!-- Added link to the jQuery Library -->
@@ -19,15 +19,17 @@
 
 </head>
 <body>
+   <!-- Setting jumbotron class and centering -->
 	 <div class="jumbotron center-block">
     	<h1 class="text-center">Forrest Gump Trivia</h1>
       <button class="center-block btn-lg" id="button1">START</button>
       <br>
-    <!-- question and answer-->
-
+    
+      <!-- aligning timer and ranout message-->
       <h3 class="text-center" id="timer"></h3>
       <h3 class="text-center" id="ranOut"></h3>
 
+      <!-- Setting radio button for html -->
       <h3 id="question1"></h3>
         <div id="TheOptions">
           <input type="radio" id="test1" name="mylist"/><label for="answer1">option 1</label>
@@ -39,12 +41,14 @@
           <input type="radio" id="test4" name="mylist"/><label for="answer4">option 4</label>  
 
       </div>
-
+      
+      <!-- place holder for results and aligning text -->
       <p class="text-center" id="Wins"></p>
       <p class="text-center" id="Losses"></p>
 
       <br>
-
+        
+       <!-- place holder for submit button --> 
       <button class="center-block btn-lg" id="button2">SUBMIT</button>
 
 
