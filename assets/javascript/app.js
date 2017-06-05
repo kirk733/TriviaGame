@@ -8,6 +8,8 @@ $(document).ready(function() {
      var numQues = 0;
      var wins = 0;
      var losses = 0;
+     var myTimer= 20;
+
 
      var question = ["Which of these actors played in the movie Forrest Gump?", 
       	"What movie did this famous qoute come from 'My biological clock is ticking'?"];
@@ -28,8 +30,8 @@ $(document).ready(function() {
 			$("label").show();
 			$("#button2").show();
 			$("#button1").hide();
-
-      		answerQuestion(); 
+			answerQuestion();
+			newTimer(myTimer); 
 
       	});
 
@@ -47,6 +49,25 @@ $(document).ready(function() {
       		
 
       	});
+
+      	function newTimer(seconds){
+  			var nextSecond = seconds - 1;
+  			var minutes = parseInt(seconds / 60, 10);
+ 			 var currentSeconds = parseInt(seconds % 60, 10);
+      			minutes = minutes < 10 ? "0" + minutes : minutes;
+      			currentSeconds = currentSeconds < 10 ? "0" + currentSeconds : currentSeconds;
+  				var time = "" + minutes + ":" + currentSeconds;
+  
+  			$("#timer").text(time);
+  				if (nextSecond === 0) {
+  					$("#ranOut").html("Ran out of Time! GAME OVER!!");
+    				displayFinals();
+  				}else {
+    				setTimeout( function() {
+    					newTimer(nextSecond);
+    				}, 1000);
+  				}
+			};
 
       	
       	function answerQuestion(){
@@ -97,6 +118,7 @@ $(document).ready(function() {
 			$("#question1").hide();
 			$("#Wins").html("Wins =" + wins);
 			$("#Losses").html("Losses =" + losses);
+			$("#timer").hide();
 		}
 
     });
