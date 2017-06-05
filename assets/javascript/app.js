@@ -8,17 +8,26 @@ $(document).ready(function() {
      var numQues = 0;
      var wins = 0;
      var losses = 0;
-     var myTimer= 20;
+     var myTimer = 40;
+     var gameRunning = true;
 
 
-     var question = ["Which of these actors played in the movie Forrest Gump?", 
-      	"What movie did this famous qoute come from 'My biological clock is ticking'?"];
+     var question = ["What is the first word that Forrest says in the movie?", 
+      	"When young Forrest meets Elvis Presley, Elvis plays the guitar for him. Forrest later passes a TV store, and the TVs show Elvis on the Milton Berle show. Something he says or does was inspired by Forrest. What is it?",
+      	"On the bus to school on the first day, Forrest meets Jenny Curran. What is the first question she asks him?",
+      	"When Jenny's physically abusive father comees looking for her, Jenny makes a prayer to God to make her a bird so she can fly far, far away from there. Instead of her turning into a bird, what happens?",
+      	"Forrest is discovered by the Alabama Crimson Tide football team of the University of Alabama. He is discovered when, running away from bullies, he runs across the field at superfast speed. The coach sees this and gives Forrest a spot on the team. Who is the coach?",
+      	"Forrest answers the drill seargent's question of, 'What's your soul purpose in this Army?!'' with, 'To do whatever you tell me, drill seargent!'' The seargent tells Forrest that his answer was genius and he must have an I.Q. of what?",
+      	"Where are Bubba and Forrest sent?",
+      	"Bubba is killed in action. What are his last words to Forrest?",
+      	"While recovering from the wound in the buttocks, Forrest picks up a sport. What sport is it?"];
 
-     var answer1 = ["Tom Brady", "Joe Dirt"];
-     var answer2 = ["Tom Cruise", "Your mama"];
-     var answer3 = ["Tom Petty", "My Cousin Vinny"];
-     var answer4 = ["Tom Hanks", "My Cousin Desiree"];
-     var trueAnswer = ["Tom Hanks", "My Cousin Vinny"];
+     var answer1 = ["No", "His Famous Dance", "Are you stupid or something?", "Nothing. Mr.Curran finds her and further abuses her.", "Jack Leavenworth", "300", "Vietnam", "Thank you.", "Billards"];
+     var answer2 = ["Miss", "His song, 'Hound Dog'", "What's your name?", "Jenny is taken to live with her grandmother.", "Paul 'Bear' Bryant", "1000", "Iraq", "I want to go home.", "Hockey"];
+     var answer3 = ["Hello", "His clothing", "Wanna make out?", "Forrest finds her and offers her to stay at his home.", "Harold Drew", "240", "Germany", "I want some shrimp", "Ping-Pong"];
+     var answer4 = ["Chocolate", "His accent", "Well, are you gonna sit down, or aren't you?", "None of the above.", "Mike DuBose", "160", "Israel", "Goodbye.", "Darts"];
+
+     var trueAnswer = ["Hello", "His Famous Dance", "Well, are you gonna sit down, or aren't you?", "Jenny is taken to live with her grandmother.", "Paul 'Bear' Bryant", "160", "Vietnam", "I want to go home.", "Ping-Pong"];
 
       	//$("#myList").hide();
 		$("input").hide();	
@@ -37,42 +46,26 @@ $(document).ready(function() {
 
       	$("#button2").on("click", function() {
       		console.log(numQues);
-      		if(numQues< 2){
+      		if(numQues< question.length){
       		checkAnswer();
       		answerQuestion();
       		}
       		else{
       			checkAnswer();
       			displayFinals();
+
       		}
 
       		
 
       	});
 
-      	function newTimer(seconds){
-  			var nextSecond = seconds - 1;
-  			var minutes = parseInt(seconds / 60, 10);
- 			 var currentSeconds = parseInt(seconds % 60, 10);
-      			minutes = minutes < 10 ? "0" + minutes : minutes;
-      			currentSeconds = currentSeconds < 10 ? "0" + currentSeconds : currentSeconds;
-  				var time = "" + minutes + ":" + currentSeconds;
-  
-  			$("#timer").text(time);
-  				if (nextSecond === 0) {
-  					$("#ranOut").html("Ran out of Time! GAME OVER!!");
-    				displayFinals();
-  				}else {
-    				setTimeout( function() {
-    					newTimer(nextSecond);
-    				}, 1000);
-  				}
-			};
+    
 
       	
       	function answerQuestion(){
       		// Inside the on-click event...
-      		if(numQues <= 2){
+      		if(numQues <= question.length){
 				$("#question1").html(question[numQues]);
       			$('label[for=answer1]').html(answer1[numQues]);
       			$('label[for=answer2]').html(answer2[numQues]);
@@ -116,10 +109,43 @@ $(document).ready(function() {
 			$("#button1").hide();
 			$("#button2").hide();
 			$("#question1").hide();
-			$("#Wins").html("Wins =" + wins);
-			$("#Losses").html("Losses =" + losses);
+			$("#Wins").html("Correct Answers =" + wins);
+			$("#Losses").html("Incorrect Answers =" + losses);
 			$("#timer").hide();
+			gameRunning = false;
+
 		}
+
+		function newTimer(seconds){
+  			var nextSecond = seconds - 1;
+  			var minutes = parseInt(seconds / 60, 10);
+ 			var currentSeconds = parseInt(seconds % 60, 10);
+      		minutes = minutes < 10 ? "0" + minutes : minutes;
+      		currentSeconds = currentSeconds < 10 ? "0" + currentSeconds : currentSeconds;
+  			var time = "" + minutes + ":" + currentSeconds;
+  
+  			$("#timer").text(time);
+  				if (nextSecond === 0 && gameRunning == true) {
+  					$("#ranOut").html("Ran out of Time! GAME OVER!!");
+    				displayFinals();
+  				}
+  				else if(nextSecond === 0 && gameRunning == false){
+  					$("#ranOut").html("GAME OVER!!");
+    				displayFinals();
+    				clearTimout(time);
+
+  				}
+
+  				else {
+  					setTimeout( function() {
+    					newTimer(nextSecond);
+    				}, 1000);
+  				}
+		}
+
+
+
+	
 
     });
 
