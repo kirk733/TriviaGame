@@ -10,9 +10,50 @@ $(document).ready(function() {
       	answer3:"Tom Petty", 
       	answer4:"Tom Hanks"};
 
+     var question1 = {
+      	question:"Which of these actors played in the movie Forrest Gump?", 
+      	answer1:"Tom Brady", 
+      	answer2:"Tom Cruise", 
+      	answer3:"Tom Petty", 
+      	answer4:"Tom Hanks"};
+
+    var question1 = {
+      	question:"Which of these actors played in the movie Forrest Gump?", 
+      	answer1:"Tom Brady", 
+      	answer2:"Tom Cruise", 
+      	answer3:"Tom Petty", 
+      	answer4:"Tom Hanks"};
+
+    var question1 = {
+      	question:"Which of these actors played in the movie Forrest Gump?", 
+      	answer1:"Tom Brady", 
+      	answer2:"Tom Cruise", 
+      	answer3:"Tom Petty", 
+      	answer4:"Tom Hanks"};
+
+    var question1 = {
+      	question:"Which of these actors played in the movie Forrest Gump?", 
+      	answer1:"Tom Brady", 
+      	answer2:"Tom Cruise", 
+      	answer3:"Tom Petty", 
+      	answer4:"Tom Hanks"};
+
+    var question1 = {
+      	question:"Which of these actors played in the movie Forrest Gump?", 
+      	answer1:"Tom Brady", 
+      	answer2:"Tom Cruise", 
+      	answer3:"Tom Petty", 
+      	answer4:"Tom Hanks"};
+
       	$("#question1").html(question1.question);
-      	$("#answer1").html(question1.answer1);
-      	$("#myRadio").attr("value",question1.answer2);
+      	$('label[for=answer1]').html(question1.answer1);
+      	$('label[for=answer2]').html(question1.answer2);
+      	$('label[for=answer3]').html(question1.answer3);
+      	$('label[for=answer4]').html(question1.answer4);
+
+
+
+
 
     //  	function myFunction() {
    // var x = document.createElement("INPUT");
