@@ -34,18 +34,24 @@ $(document).ready(function() {
       	});
 
       	$("#button2").on("click", function() {
-      		
+      		console.log(numQues);
+      		if(numQues< 2){
       		checkAnswer();
       		answerQuestion();
+      		}
+      		else{
+      			checkAnswer();
+      			displayFinals();
+      		}
 
-      		//answerQuestion(); 
+      		
 
       	});
 
       	
       	function answerQuestion(){
       		// Inside the on-click event...
-      		if(numQues <= 6){
+      		if(numQues <= 2){
 				$("#question1").html(question[numQues]);
       			$('label[for=answer1]').html(answer1[numQues]);
       			$('label[for=answer2]').html(answer2[numQues]);
@@ -60,34 +66,38 @@ $(document).ready(function() {
     		var x = document.getElementById("test2").checked;
     		var y = document.getElementById("test3").checked;
     		var z = document.getElementById("test4").checked;
-    		if(w == true){
-    			retAnswer = answer1[numQues-1];
-    		}
-    		if(x == true){
-    			retAnswer = answer2[numQues-1];
-    		}
-    		if(y == true){
-    			retAnswer = answer3[numQues-1];
-    		}
-    		if(z == true){
-    			retAnswer = answer4[numQues-1];
-    		}
+    			if(w == true){
+    				retAnswer = answer1[numQues-1];
+    			}
+    			if(x == true){
+    				retAnswer = answer2[numQues-1];
+    			}
+    			if(y == true){
+    				retAnswer = answer3[numQues-1];
+    			}
+    			if(z == true){
+    				retAnswer = answer4[numQues-1];
+    			}
 
-    		if (trueAnswer[numQues-1] === retAnswer){
-    			wins++
-    		}
+    			if (trueAnswer[numQues-1] === retAnswer){
+    				wins++
+    			}
 
-    		else {
-    			losses++
-    		}
+    			else {
+    				losses++
+    			}
 
-
-    		console.log(trueAnswer[numQues-1]);
-    		console.log(w, x, y, z);
-    		console.log(retAnswer);
-    		console.log("Wins" + wins);
-    		console.log("Losses" + losses);
 			};
+
+		function displayFinals(){
+			$("input").hide();	
+			$("label").hide();
+			$("#button1").hide();
+			$("#button2").hide();
+			$("#question1").hide();
+			$("#Wins").html("Wins =" + wins);
+			$("#Losses").html("Losses =" + losses);
+		}
 
     });
 
